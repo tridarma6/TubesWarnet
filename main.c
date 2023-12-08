@@ -60,18 +60,14 @@ void lineConnector()
 {
     printf("\t\t\e[32m\xBA\xCD\xCD\xCD\xCD\xCD\xBA\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBA\xCD\xCD\xCD\xCD\xCD\xBA\e[0m\n");
 }
-// float pricePcperHour[3][3] = {
-//     {15000, 10000, 5000}, // Pagi {exe, vip, reg} jam 6 - 10 
-//     {21000, 14000, 7000}, // Siang {exe, vip, reg} jam 10 - 18
-//     {12000, 8000, 4000}  // Malam {exe, vip, reg} jam 18 - 6 
-// };
-float pricePcperHour[3][3][6] = {
+
+float pricePC[3][3][6] = {
     //exe                                         vip                                        reg
     {{15000, 25000, 36000, 45000, 55000, 65000}, {10000, 17000, 23000, 27000, 33000, 39000}, {5000, 8000, 11000, 15000, 19000, 22000}}, // moring
     {{21000, 29000, 40000, 54000, 62000, 70000}, {14000, 25000, 33000, 41000, 50000, 59000}, {7000, 11000, 19000, 25000, 31000, 38000}}, // afternoon
     {{12000, 20000, 29000, 36000, 44000, 50000}, {8000, 14000, 20000, 28000, 36000, 40000}, {4000, 8000, 11000, 13000, 16000, 18000}} // night
 };
-float pricePerHour = 0;
+float price = 0;
 float priceFoodnDrink[10] = {
     3000, // tea (ice/hot) 
     4000, // coffe  (ice/hot)
@@ -87,23 +83,23 @@ float priceFoodnDrink[10] = {
 void priceMorning(){
     printf("Morning Session\n");
     printf("|| Room       || 1 hour\t\t|| 2 hour\t|| 3 hour\t|| 4 hour\t|| 5 hour\t|| 6 hour\t||\n");
-    printf("|| Executive  || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePcperHour[0][0][0], pricePcperHour[0][0][1], pricePcperHour[0][0][2], pricePcperHour[0][0][3],pricePcperHour[0][0][4], pricePcperHour[0][0][5]);
-    printf("|| VIP        || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePcperHour[0][1][0], pricePcperHour[0][1][1], pricePcperHour[0][1][2], pricePcperHour[0][1][3],pricePcperHour[0][1][4], pricePcperHour[0][1][5]);
-    printf("|| Reguler    || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePcperHour[0][2][0], pricePcperHour[0][2][1], pricePcperHour[0][2][2], pricePcperHour[0][2][3],pricePcperHour[0][2][4], pricePcperHour[0][2][5]);
+    printf("|| Executive  || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePC[0][0][0], pricePC[0][0][1], pricePC[0][0][2], pricePC[0][0][3],pricePC[0][0][4], pricePC[0][0][5]);
+    printf("|| VIP        || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePC[0][1][0], pricePC[0][1][1], pricePC[0][1][2], pricePC[0][1][3],pricePC[0][1][4], pricePC[0][1][5]);
+    printf("|| Reguler    || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePC[0][2][0], pricePC[0][2][1], pricePC[0][2][2], pricePC[0][2][3],pricePC[0][2][4], pricePC[0][2][5]);
 }
 void priceAfternoon(){
     printf("Afternoon Session\n");
     printf("|| Room       || 1 hour\t\t|| 2 hour\t|| 3 hour\t|| 4 hour\t|| 5 hour\t|| 6 hour\t||\n");
-    printf("|| Executive  || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePcperHour[1][0][0], pricePcperHour[1][0][1], pricePcperHour[1][0][2], pricePcperHour[1][0][3],pricePcperHour[1][0][4], pricePcperHour[1][0][5]);
-    printf("|| VIP        || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePcperHour[1][1][0], pricePcperHour[1][1][1], pricePcperHour[1][1][2], pricePcperHour[1][1][3],pricePcperHour[1][1][4], pricePcperHour[1][1][5]);
-    printf("|| Reguler    || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePcperHour[1][2][0], pricePcperHour[1][2][1], pricePcperHour[1][2][2], pricePcperHour[1][2][3],pricePcperHour[1][2][4], pricePcperHour[1][2][5]);
+    printf("|| Executive  || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePC[1][0][0], pricePC[1][0][1], pricePC[1][0][2], pricePC[1][0][3],pricePC[1][0][4], pricePC[1][0][5]);
+    printf("|| VIP        || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePC[1][1][0], pricePC[1][1][1], pricePC[1][1][2], pricePC[1][1][3],pricePC[1][1][4], pricePC[1][1][5]);
+    printf("|| Reguler    || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePC[1][2][0], pricePC[1][2][1], pricePC[1][2][2], pricePC[1][2][3],pricePC[1][2][4], pricePC[1][2][5]);
 }
 void priceNight(){
     printf("Night Session\n");
     printf("|| Room       || 1 hour\t\t|| 2 hour\t|| 3 hour\t|| 4 hour\t|| 5 hour\t|| 6 hour\t||\n");
-    printf("|| Executive  || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePcperHour[2][0][0], pricePcperHour[2][0][1], pricePcperHour[2][0][2], pricePcperHour[2][0][3],pricePcperHour[2][0][4], pricePcperHour[2][0][5]);
-    printf("|| VIP        || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePcperHour[2][1][0], pricePcperHour[2][1][1], pricePcperHour[2][1][2], pricePcperHour[2][1][3],pricePcperHour[2][1][4], pricePcperHour[2][1][5]);
-    printf("|| Reguler    || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePcperHour[2][2][0], pricePcperHour[2][2][1], pricePcperHour[2][2][2], pricePcperHour[2][2][3],pricePcperHour[2][2][4], pricePcperHour[2][2][5]);
+    printf("|| Executive  || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePC[2][0][0], pricePC[2][0][1], pricePC[2][0][2], pricePC[2][0][3],pricePC[2][0][4], pricePC[2][0][5]);
+    printf("|| VIP        || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePC[2][1][0], pricePC[2][1][1], pricePC[2][1][2], pricePC[2][1][3],pricePC[2][1][4], pricePC[2][1][5]);
+    printf("|| Reguler    || Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t|| Rp%.2f\t||\n", pricePC[2][2][0], pricePC[2][2][1], pricePC[2][2][2], pricePC[2][2][3],pricePC[2][2][4], pricePC[2][2][5]);
 }
 int pickRoom(int kode){
     lineTop();
@@ -113,7 +109,7 @@ int pickRoom(int kode){
     printf("2. Room VIP\n");
     printf("3. Room Reguler\n");
     kode = validasi3();
-    return (kode-1);
+    return kode;
 }
 int pickHour(int code){
     lineTop();
@@ -128,18 +124,15 @@ int pickHour(int code){
     code = validasi6();
     return code;
 }
-void totalOfCost(char session[], char room[], float pricePerHour, int codeHour, float priceOfFood){
-    float subTotal = pricePerHour * codeHour;
-    float total = subTotal + priceOfFood;
+void totalOfCost(char session[], char room[], float price, int codeHour, float priceOfFood){
+    float total = price + priceOfFood;
     lineTop();
     printf("\t\t\e[32m\xBA>>>>>\xBA\e[0m   - ~ - ~ - ~ - ~ - ~ TOTAL OF COST - ~ - ~ - ~ - ~ - \e[32m\xBA<<<<<\xBA\e[0m\n");
     printf("Session : %s\n", session);
     printf("Room : %s\n", room);
-    printf("Price/Hour : Rp%.2f\n", pricePerHour);
     printf("Hour : %d\n", codeHour);
-    printf("Subtotal Price : Rp%.2f\n", subTotal);
+    printf("Price : Rp%.2f\n", price);
     printf("Food & Drink : Rp%.2f\n", priceOfFood);
-
     printf("Total Price : Rp%.2f\n", total);
 
     lineBot();
@@ -248,9 +241,12 @@ void pickSession(int codeSession, int codeRoom, int codeHour){
         break;
     }
     codeHour = pickHour(codeHour);
-    pricePerHour = **pricePcperHour[codeSession-1, codeRoom, codeHour-1];
+    int i = codeSession -1;
+    int j = codeRoom -1;
+    int k = codeHour -1;
+    price = pricePC[i][j][k];
     priceOfFood = snacknDrink();
-    totalOfCost(session, room, pricePerHour, codeHour, priceOfFood);
+    totalOfCost(session, room, price, codeHour, priceOfFood);
 }
 int main(){
     int codeSession, codeRoom, codeHour;
